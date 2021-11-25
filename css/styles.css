@@ -1,0 +1,38 @@
+:root {
+	--color-bg: #FAFAFA;
+	--color-bg-secondary: #FFFFFF;
+	--color-text: #000000;
+
+}
+
+html {
+	box-sizing: border-box; /* 1 */
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+}
+
+.container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+}
+
+.navbar {
+	background-color: var(--color-bg-secondary);
+
+}
+
+.nav-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
