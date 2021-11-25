@@ -17,9 +17,56 @@
 	<nav class="navbar">
 		<div class="container nav-content">
 			<h1>REST - Paises</h1>
-			<button type="button">Modo Oscuro</button>
+			<button class="btn-dark-mode">
+				<i class="fas fa-sun"></i>
+				Dark mode
+			</button>
 		</div>
 	</nav>
+
+	<header class="container filter-content my-2">
+		<form action="" class="form-search" id="form">
+			<i class="fa fa-search"></i>
+			<input type="text" placeholder="Ingresa país" id="inputForm">
+		</form>
+		<div>
+			<select class="custom-select" id="selectForm">
+				<option value="">Todos</option>
+				<option value="Africa">África</option>
+				<option value="Americas">America</option>
+				<option value="Asia">Asia</option>
+				<option value="Europe">Europa</option>
+				<option value="Oceania">Oceania</option>
+			</select>
+		</div>
+	</header>
+
+	<main class="container">
+		<article class="card">
+			<div id="textRegion"></div>
+			<table class="default">
+				<thead>
+					<tr>
+						<th>CODIGO(ALFA 3)</th>
+						<th>NOMBRE</th>
+						<th>CAPITAL</th>
+						<th>POBLACION</th>
+						<th>IDIOMAS</th>
+						<th>BANDERA</th>
+
+					</tr>
+				</thead>
+
+				<tbody id="flags">
+
+				</tbody>
+
+			</table>
+
+		</article>
+	</main>
+	<script src="./js/darkmode.js"></script>
+	<script src="./js/app.js"></script>
 </body>
 
 </html>
