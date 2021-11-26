@@ -9,8 +9,6 @@ const fetchData = async () => {
 		const data = await response.json();
 		printFlags(data)
 		formClient(data)
-		formSelect(data)
-		console.log(data);
 	} catch (error) {
 		console.log(error);
 	}
@@ -66,24 +64,20 @@ const formClient = data => {
 const select = document.getElementById("selectForm")
 const textRegion = document.getElementById("textRegion")
 
-const formSelect = data => {
-	select.addEventListener('change', e => {
-		e.preventDefault()
-		const select = e.target
-		const regionSelected = select.value.toLowerCase()
-		const description = select.options[select.selectedIndex].text
-		if (regionSelected === "") {
-			printFlags(data)
-			textRegion.innerHTML = ''
-			return
-		}
-		const filterCountries = data.filter(item => {
-			const name = item.region.toLowerCase()
-			if (name === regionSelected) {
-				return item
-			}
-		})
-		textRegion.innerHTML = `<p> ${description.toUpperCase()} - ${filterCountries.length} paises encontrados</p>`
-		printFlags(filterCountries)
-	})
-}
+
+select.addEventListener('change', async e => {
+	e.preventDefault()
+	const select = e.target
+	const regionSelected = select.value.toLowerCase()
+	const description = select.options[select.selectedIndex].text
+	if (regionSelected === "") {
+		printFlags(data)
+		textRegion.innerHTML = ''
+		return
+	}
+	const response = await fetch(`https://restcountries.com/v3.1/region/${regionSelected}`)
+	const data = await response.json()
+	textRegion.innerHTML = `<p> ${description.toUpperCase()} - ${data.length} paises encontrados</p>`
+	printFlags(data)
+})
+
