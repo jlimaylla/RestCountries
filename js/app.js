@@ -71,7 +71,7 @@ select.addEventListener('change', async e => {
 	const regionSelected = select.value.toLowerCase()
 	const description = select.options[select.selectedIndex].text
 	if (regionSelected === "") {
-		printFlags(data)
+		fetchData()
 		textRegion.innerHTML = ''
 		return
 	}
